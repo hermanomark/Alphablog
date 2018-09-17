@@ -16,7 +16,7 @@
 
 body {
   text-align: center;
-  margin: 20px;
+  margin: 0;
   padding: 0;
 }
 
@@ -48,10 +48,11 @@ nav li {
 }
 
 .index {
-  background-color: aliceblue;
+  background-color: white;
   height: 160px;
   width: auto;
   margin: 0;
+  padding: 0 20px 0 20px;
   display: flex;
   justify-content: space-between;
 }
