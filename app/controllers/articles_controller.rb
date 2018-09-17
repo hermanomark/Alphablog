@@ -9,6 +9,9 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params)
     @article.save
+
+    # redirect to show path
+    redirect_to articles_show(@article)
   end
 
   # whitelist params
