@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'alphablogs#index'
   get '/home', to: 'alphablogs#index'
   get '/about', to: 'alphablogs#about'
+
+  resources :articles
 end
