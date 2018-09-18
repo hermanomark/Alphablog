@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
   
+  # it's up to you to name this but it should be plural like @articles
   def index
-    @article = Article.all
+    @articles = Article.all
   end
 
   def new

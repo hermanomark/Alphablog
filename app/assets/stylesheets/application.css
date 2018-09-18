@@ -68,3 +68,7 @@ nav li {
   text-align: left;
   align-items: center;
 }
+
+table {
+  margin: auto;
+}
