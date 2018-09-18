@@ -8,6 +8,10 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def create
     # this line of code you could see the information being pass when you hit the submit button fron /articles/new
     # render plain: params[:article].inspect
@@ -25,6 +29,17 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    # very similar for create function we have to pass the whitelist article_params
+    if @article.update(article_params)
+      flash[:notice] = "Article was successfully updated"
+      redirect_to article_path(@article)
+    else
+      render 'edit'
+    end
   end
 
   # whitelist params
