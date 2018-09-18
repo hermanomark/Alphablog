@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  # calling the set_article method from private only put for edit, update, show, destroy
   before_action :set_article, only: [:edit, :update, :show, :destroy]
 
   # it's up to you to name this but it should be plural like @articles
@@ -51,6 +52,8 @@ class ArticlesController < ApplicationController
 
   # whitelist params
   private
+
+    # fix redundancy for @article = Article.find(params[:id]) code in update, edit, show, destroy
     def set_article
       @article = Article.find(params[:id])
     end
