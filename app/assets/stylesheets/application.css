@@ -14,13 +14,14 @@
  *= require_self
  */
 
-body {
+
+/*body {
   text-align: center;
   margin: 0;
   padding: 0;
-}
+}*/
 
-nav {
+/*nav {
   background-color: aquamarine;
   padding: 8px;
 }
@@ -35,9 +36,9 @@ nav li {
   display: inline-block;
   font-weight: bold;
   padding: 0 5px 0 5px;
-}
+}*/
 
-.header {
+/*.header {
   background-color: blueviolet;
   height: 200px;
   width: auto;
@@ -71,4 +72,4 @@ nav li {
 
 table {
   margin: auto;
-}
+}*/
