@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+  
+  def index
+    @article = Article.all
+  end
+
   def new
     @article = Article.new
   end
@@ -8,10 +13,18 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
 
     @article = Article.new(article_params)
-    @article.save
+    if @article.save
+    #do something
+      flash[:notice] = "Article was successfully created"
+      # redirect to show path
+      redirect_to article_path(@article)
+    else
+      render 'new'
+    end
+  end
 
-    # redirect to show path
-    redirect_to articles_show(@article)
+  def show
+    @article = Article.find(params[:id])
   end
 
   # whitelist params
