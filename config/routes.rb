@@ -4,5 +4,10 @@ Rails.application.routes.draw do
   get '/home', to: 'alphablogs#index'
   get '/about', to: 'alphablogs#about'
 
+  get 'signup', to: 'users#new'
+  # post 'users', to: 'users#create'
+  # other to do the users_path post, but we already made the users#new path hence the except
+  resources :users, except: [:new]
+
   resources :articles
 end
