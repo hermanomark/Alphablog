@@ -16,10 +16,13 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # debugger
     # this line of code you could see the information being pass when you hit the submit button fron /articles/new
     # render plain: params[:article].inspect
 
     @article = Article.new(article_params)
+    # this will ensure that article must have a user_id, temporarily
+    @article.user = User.first
     if @article.save
     #do something
       flash[:success] = "Article was successfully created"
