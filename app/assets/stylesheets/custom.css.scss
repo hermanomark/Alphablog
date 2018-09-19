@@ -57,6 +57,8 @@ $navbar-default-bg: aquamarine;
 .well {
   margin: auto;
   width: 67%;
+  /*fixes the text bleeding out of well*/
+  word-break:break-all;
 }
 
 .my-article {
