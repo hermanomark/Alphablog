@@ -1,23 +1,23 @@
-<h1> Listing all articles</h1>
-<p>
-  <%= link_to "Create new article", new_article_path %>
-</p>
+<h1 align="center"> Listing all articles</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  <tr>
-
-  <% @articles.each do | article | %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.description %></td>
-    <!-- over here give the article object, we're iterating over the @articles so we should only use article -->
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Show', article_path(article) %> </td>
-    <!-- the path is very similar to show so you have to code the method delete, also adding the data for confirmation -->
-    <td><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %></td>
-  </tr>
-  <% end %>
-</table>
+<% @articles.each do | article | %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="well well-lg my-article">
+        <div class="article-title">
+          <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="article-body">
+          <!-- truncating the description -->
+          <%= truncate(article.description, length: 100) %>
+        </div>
+        <div class="article-actions">
+          <!-- over here give the article object, we're iterating over the @articles so we should only use article -->
+          <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+          <!-- the path is very similar to show so you have to code the method delete, also adding the data for confirmation -->
+          <%= link_to "Delete this article", article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
