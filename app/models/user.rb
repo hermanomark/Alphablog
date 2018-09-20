@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :articles
+  has_many :articles, dependent: :destroy
   # before_save, take the email value and make it to a lowercase
   before_save { self.email = email.downcase }
   # case sensitive set to false to make sure, uniqeness for capitilization will be ignored

@@ -67,7 +67,8 @@ class ArticlesController < ApplicationController
 
     def require_same_user
       # we know we can call current_user and @article_user because the before_action :set_article has been set
-      if current_user != @article.user
+      # checks if the user is not current user and not an admin but current user is not article user but if current user is admin then this will allow this action
+      if current_user != @article.user and !current_user.admin?
         flash[:danger] = "You can only edit or delete your own article"
         redirect_to root_path
       end
