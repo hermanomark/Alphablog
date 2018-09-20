@@ -38,6 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Building paginated view
+gem 'will_paginate', '3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 group :development, :test do
   # when deployng to heroku, heroku does not support sqlite that's why we move it to development test
   gem 'sqlite3'
