@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   # other to do the users_path post, but we already made the users#new path hence the except
   resources :users, except: [:new]
 
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy' 
+
   resources :articles
 end

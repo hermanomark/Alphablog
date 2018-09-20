@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   # calling the set_article method from private only put for edit, update, show, destroy
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # it's up to you to name this but it should be plural like @articles
   def index
@@ -12,7 +14,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def create
@@ -22,7 +23,7 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params)
     # this will ensure that article must have a user_id, temporarily
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
     #do something
       flash[:success] = "Article was successfully created"
@@ -33,10 +34,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show
-
-  end
-
   def update
     # very similar for create function we have to pass the whitelist article_params
     if @article.update(article_params)
@@ -45,6 +42,9 @@ class ArticlesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def show
   end
 
   def destroy
@@ -63,5 +63,13 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :description)
+    end
+
+    def require_same_user
+      # we know we can call current_user and @article_user because the before_action :set_article has been set
+      if current_user != @article.user
+        flash[:danger] = "You can only edit or delete your own article"
+        redirect_to root_path
+      end
     end
 end
