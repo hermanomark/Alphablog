@@ -105,3 +105,12 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+/*fix for gravatar image size bcoming oval for not squared images*/
+/*make sure to also set size of gravatar double times the width and height so it won't become pixelated*/
+.img-circle {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  /*border: 3px solid black;*/
+}
