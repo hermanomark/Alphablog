@@ -63,6 +63,7 @@ class UsersController < ApplicationController
       end
     end
 
+    # this method checks if user is admin for destroy action
     def require_admin
       if logged_in? and !current_user.admin?
         flash[:danger] = "Only admin users can perform that action"

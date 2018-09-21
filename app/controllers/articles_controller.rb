@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
   # calling the set_article method from private only put for edit, update, show, destroy
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  # built method in application controller
   before_action :require_user, except: [:index, :show]
+  # this is reference from the private
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # it's up to you to name this but it should be plural like @articles
