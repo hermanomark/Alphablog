@@ -42,6 +42,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'will_paginate', '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+# in rails assert_template has been to a gem, so add the gem 'rails-controller-testing' and run 'bundle install' before you can run this method
+gem 'rails-controller-testing'
+
 group :development, :test do
   # when deployng to heroku, heroku does not support sqlite that's why we move it to development test
   gem 'sqlite3'
