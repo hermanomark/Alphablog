@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  has_many :article_categories
+  has_many :categories, through: :article_categories
   belongs_to :user
   #ensure that every article is created it must have a user
   validates :user_id, presence: true
