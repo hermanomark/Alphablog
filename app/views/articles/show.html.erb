@@ -17,6 +17,10 @@
   <hr>
   <!-- simple_format this will display the formatting in creating the description of the article -->
   <%= simple_format(@article.description) %>
+  <% if @article.categories.any? %>
+    <!-- rendering here is same with using @article.categories.each do |category| .... end -->
+    <p>Categories: <%= render @article.categories %></p>
+  <% end %>
   <div class="article-actions">
     <!-- # you have to pass the @article to edit -->
     <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
