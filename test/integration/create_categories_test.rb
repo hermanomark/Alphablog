@@ -20,4 +20,18 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     # and the index page should have sports now that you have create the category sports displayed in the page
     assert_match "sports", response.body
   end
+
+  test "invalid category submission results in failure" do
+    get new_category_path
+    assert_template 'categories/new' 
+    assert_no_difference 'Category.count' do
+      post categories_path, params: { category:{name: ""}} 
+      # in rails 5 should remove this line
+      # follow_redirect!
+    end
+    assert_template 'categories/new'
+    # your getting this from views / shared / errors.html.erb, this is howw you reference it
+    assert_select 'h2.panel-title'
+    assert_select 'div.panel-body'
+  end
 end
