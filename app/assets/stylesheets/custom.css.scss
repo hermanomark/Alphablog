@@ -1,24 +1,34 @@
-$navbar-default-bg: aquamarine;
+$navbar-inverse-bg: black;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.my-navbar li .link {
+  color: red;
+}
+
+.my-navbar li:hover {
+  color: white;
+}
+
+
 #logo {
   float: left;
   font-size: 1.7em;
-  color: gray;
+  color: #eaeaea;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
 }
 
 #logo:hover {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 .navbar {
   margin-bottom: 20px;
+  border-radius: 0;
 }
 
 .center {
@@ -26,13 +36,13 @@ $navbar-default-bg: aquamarine;
 }
 
 .jumbotron {
-    background-image: asset-url('taal_view.jpg');
+    background-image: asset-url('papaya_island.jpg');
     background-size: cover;
-    height: 550px;
+    height: 140vh;
   }
 
 .jumbotron h1 {
-  color: #fff;
+  color: black;
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: -1px;
