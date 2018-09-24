@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # handling when user is deleted its articles is also deleted
   has_many :articles, dependent: :destroy
   # before_save, take the email value and make it to a lowercase
   before_save { self.email = email.downcase }

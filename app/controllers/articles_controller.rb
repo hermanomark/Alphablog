@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
 
     @article = Article.new(article_params)
-    # this will ensure that article must have a user_id, temporarily
+    # this will ensure that article must have a user_id
     @article.user = current_user
     if @article.save
     #do something
