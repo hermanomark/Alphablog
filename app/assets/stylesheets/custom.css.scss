@@ -3,15 +3,6 @@ $navbar-inverse-bg: black;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.my-navbar li .link {
-  color: red;
-}
-
-.my-navbar li:hover {
-  color: white;
-}
-
-
 #logo {
   float: left;
   font-size: 1.7em;
