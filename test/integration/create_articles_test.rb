@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CreateCategoriesTest < ActionDispatch::IntegrationTest
+class CreateArticlesTest < ActionDispatch::IntegrationTest
   def setup
    @user = User.create(username: "john", email: "john@example.com", password: "password", admin: false)
   end
